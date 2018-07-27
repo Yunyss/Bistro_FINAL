@@ -24,7 +24,6 @@ class AppUser(ndb.Model):
   seat = ndb.StringProperty()
   time = ndb.StringProperty()
   group_size = ndb.StringProperty()
-  location = ndb.StringProperty()
   user_date = ndb.StringProperty()
 
   
@@ -76,7 +75,6 @@ class MainHandler(webapp2.RequestHandler):
     time=self.request.get('time'),
     group_size= self.request.get('group_size'),
     seat=self.request.get('seat'),
-    location=self.request.get('location')
     
     
     app_user = AppUser(
@@ -87,7 +85,6 @@ class MainHandler(webapp2.RequestHandler):
         date=self.request.get('date'),
         time=self.request.get('time'),
         group_size= self.request.get('group_size'),
-        location=self.request.get('location')
       )
         
     app_user.put()
@@ -172,7 +169,7 @@ class AdminHandler(webapp2.RequestHandler):
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 	<!-- Style -->
 	<link rel="stylesheet" href="css/style.css">
-</head> <br> Name: %s %s <br> Reservation Time: %s <br> Group Size: %s <br> Date: %s <br> Seat: %s <br>''' % (çreserves.first_name,reserves.last_name,reserves.time,reserves.group_size,reserves.date,reserves.seat))
+</head> <br> Name: %s %s <br> Reservation Time: %s <br> Group Size: %s <br> Date: %s <br> Seat: %s <br>''' % (reserves.first_name,reserves.last_name,reserves.time,reserves.group_size,reserves.date,reserves.seat))
 #    a_template = jinja_env.get_template('admin.html')
 #    self.response.write(a_template.render())
     
