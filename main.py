@@ -157,6 +157,7 @@ class AdminHandler(webapp2.RequestHandler):
     reservation = AppUser.query().filter(AppUser.date == chosen_date).fetch()
     self.response.write('<form> <input type = "text" name = "user_date"> <input type="submit"> </form>')
     for reserves in reservation:
+    	print reserves.location
         self.response.write(''' <head>
 <!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -171,7 +172,7 @@ class AdminHandler(webapp2.RequestHandler):
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 	<!-- Style -->
 	<link rel="stylesheet" href="css/style.css">
-</head> <br> Name: %s %s <br> Reservation Time: %s <br> Group Size: %s <br> Date: %s <br> Seat: %s <br>''' % (reserves.first_name,reserves.last_name,reserves.time,reserves.group_size,reserves.date,reserves.seat))
+</head> <br> Name: %s %s <br> Reservation Time: %s <br> Group Size: %s <br> Date: %s <br> Seat: %s <br>''' % (çreserves.first_name,reserves.last_name,reserves.time,reserves.group_size,reserves.date,reserves.seat))
 #    a_template = jinja_env.get_template('admin.html')
 #    self.response.write(a_template.render())
     
